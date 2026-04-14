@@ -34,7 +34,8 @@ jobs:
         continue-on-error: true
 
       - name: Comment test results and coverage on PR
-        if: always()
+      # Modified by me Said - added the part starting from the "&&" - to tvoid failure on workflow_dispatch when there is no PR
+        if: always() && github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
