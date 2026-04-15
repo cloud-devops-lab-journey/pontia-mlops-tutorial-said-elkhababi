@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Download Adult dataset
-        run:        
+        run: |       
           mkdir -p data/raw
           curl -o data/raw/adult.data https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
           curl -o data/raw/adult.test https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test
