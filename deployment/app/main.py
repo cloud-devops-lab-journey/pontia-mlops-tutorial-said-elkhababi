@@ -123,7 +123,7 @@ app = FastAPI(lifespan=lifespan)
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    return {"status": "error_simulado"}
 
 @app.post("/predict")
 async def predict(request: Request):
