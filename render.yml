@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: pontia-mlops-said
+    runtime: python
+    region: frankfurt
+    plan: free
+    rootDir: deployment
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8080
+    envVars:
+      - key: GITHUB_REPO
+        value: cloud-devops-lab-journey/pontia-mlops-tutorial-said-elkhababi
