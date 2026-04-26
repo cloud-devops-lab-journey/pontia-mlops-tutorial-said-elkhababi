@@ -45,7 +45,20 @@ La API está desplegada en Render y carga automáticamente los artefactos del ú
 Los cambios se realizan en ramas separadas, se abren Pull Requests hacia `main` y se validan mediante checks automáticos antes del merge.
 
 ## Rollback
-El proceso de rollback consistirá en volver a desplegar una versión anterior estable del servicio o restaurar una release previa del modelo. Este proceso se documentará con más detalle.
+
+El rollback permite volver a una versión anterior estable si una nueva versión del modelo o del servicio falla después del despliegue.
+
+En este proyecto, el rollback puede realizarse restaurando una release anterior del modelo en GitHub Releases y ejecutando de nuevo el despliegue en Render.
+
+Pasos generales:
+
+1. Identificar la última release estable del modelo en GitHub Releases.
+2. Restaurar o seleccionar los artefactos de esa release anterior.
+3. Ejecutar de nuevo el workflow de despliegue `deploy.yml`.
+4. Verificar que el servicio en Render responde correctamente.
+5. Probar los endpoints principales: `/health`, `/metrics` y `/predict`.
+
+Este proceso permite recuperar una versión funcional del servicio sin rehacer todo el pipeline desde cero.
 
 ## Evidencia
 La API puede probarse desde `/docs`, Postman o `curl`.
